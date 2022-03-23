@@ -30,11 +30,12 @@ namespace GuessTheNumber
                 else if (input == "Y")
                 {
                     Console.WriteLine("Let's play a game Georgie!!!");
+                    goto AfterLoop;
                  }
                 else if (input == "y")
                 {
                     Console.WriteLine("Let's play a game Georgie!!!");
-                    
+                    goto AfterLoop;
                 }
                 else if (input == "N")
                 {
@@ -48,6 +49,7 @@ namespace GuessTheNumber
                 }
             } while (input == false);
 
+            AfterLoop:
             Console.WriteLine("Choose a number between 0 and 50, Georgie!");
             
             do

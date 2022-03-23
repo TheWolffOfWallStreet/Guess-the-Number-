@@ -5,24 +5,50 @@ namespace GuessTheNumber
 { 
     class program
     {
+        private static bool input;
+
         static void Main(string[] args)
         {
             Random n = new Random();
             int winNum = n.Next(0, 50);
             bool win = false;
-            
+
             Console.WriteLine("Do you want to play a game, Georgie?");
             Console.WriteLine("Yes or no? (Y/N");
-           // do
-          //  {
-              //  string input = Console.ReadLine();
-               // string pattern = ;
-              //  Regex r = new Regex(@"^(Y|N){1}$", RegexOptions.IgnoreCase);
-              //  if (r.IsMatch(input)) ;
-                //input = Console.ReadLine();
-              //  if (r.Match() == true) ;
-                Console.WriteLine("Guess a number between zero and fifty");
-            //} while (true);
+            Console.WriteLine("Selecting N/n and pressing the enter key will end the game session" +
+                "and you will have to start over.");
+            do
+            {
+                string input = Console.ReadLine();
+
+                Regex r = new Regex(@"^(Y|N){1}$", RegexOptions.IgnoreCase);
+
+                if (!r.IsMatch(input))
+                {
+                    Console.WriteLine("You chose " + input + " , this is not an option Georgie!");
+                }
+                else if (input == "Y")
+                {
+                    Console.WriteLine("Let's play a game Georgie!!!");
+                 }
+                else if (input == "y")
+                {
+                    Console.WriteLine("Let's play a game Georgie!!!");
+                    
+                }
+                else if (input == "N")
+                {
+                    Console.WriteLine("Okay Georgie, see ya later!");
+                    Environment.Exit(0);
+                }
+                else if (input == "n")
+                {
+                    Console.WriteLine("Okay Georgie, see ya later!");
+                    Environment.Exit(0);
+                }
+            } while (input == false);
+
+            Console.WriteLine("Choose a number between 0 and 50, Georgie!");
             
             do
             {

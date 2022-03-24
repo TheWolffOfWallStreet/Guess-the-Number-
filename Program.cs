@@ -74,7 +74,7 @@ namespace GuessTheNumber
 
                 if (i > 50)
                 {
-                    Console.WriteLine("Georgie, you can only guess numbers between 0 and 50! You guessed "+i+", which is too high!");
+                    Console.WriteLine("Georgie, you can only guess numbers between 0 and 50! You guessed "+i+"!" );
                 }
                 else if (i > winNum)
                 {

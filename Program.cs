@@ -6,12 +6,13 @@ namespace GuessTheNumber
     class program
     {
         private static bool input;
-
+        
         static void Main(string[] args)
         {
             Random n = new Random();
             int winNum = n.Next(0, 50);
             bool win = false;
+            
 
             Console.WriteLine("Do you want to play a game, Georgie?");
             Console.WriteLine("Yes or no? (Y/N");
@@ -25,7 +26,7 @@ namespace GuessTheNumber
 
                 if (!r.IsMatch(input))
                 {
-                    Console.WriteLine("You chose " + input + " , this is not an option Georgie!");
+                    Console.WriteLine("You chose " + input + ", this is not an option Georgie!");
                 }
                 else if (input == "Y")
                 {
@@ -49,37 +50,55 @@ namespace GuessTheNumber
                 }
             } while (input == false);
 
+            
             AfterLoop:
-            Console.WriteLine("Choose a number between 0 and 50, Georgie!");
+            Console.WriteLine("Guess a number between 0 and 50, Georgie!");
             
             do
             {
                
                 bool parseSucceeded = false;
                 int i = 0;
+                
+                
                 do
                 {
                     string s = Console.ReadLine();
                     parseSucceeded = int.TryParse(s, out i);
                     if (!parseSucceeded)
                     {
-                        Console.WriteLine("This is not a number");
+                        Console.WriteLine("This is not a number, Georgie! Please try again");
                     }
                 } while (!parseSucceeded);
 
-                if (i > winNum)
+
+                if (i > 50)
                 {
+                    Console.WriteLine("Georgie, you can only guess numbers between 0 and 50! You guessed "+i+", which is too high!");
+                }
+                else if (i > winNum)
+                {
+
                     Console.WriteLine("Sorry Georgie, your guess was too high! Guess again!");
+
                 }
                 else if (i < winNum)
                 {
+
                     Console.WriteLine("Sorry Georgie, your guess was too low! Guess again!");
+
                 }
+
                 else if (i == winNum)
                 {
+
+
                     Console.WriteLine("Great job, Georgie! Come join me in the sewer!");
+
                     win = true;
+
                 }
+
             } while (win == false);
         }
     }
